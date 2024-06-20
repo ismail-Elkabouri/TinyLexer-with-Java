@@ -2,4 +2,4 @@
 *.class
 *.lang
 *.txt 
-*.DS
+*.DS_Store
