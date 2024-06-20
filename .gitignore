@@ -1,4 +1,5 @@
-# ignore all files with .class && .lang && .txt
+# ignore all files with .class && .lang && .txt && .DS_store 
 *.class
 *.lang
 *.txt 
+*.DS_store
