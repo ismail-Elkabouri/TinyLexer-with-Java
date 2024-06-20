@@ -1,0 +1,85 @@
+digraph DFA {
+    rankdir=LR;
+    size="8,5"
+
+    node [shape = doublecircle, style = filled, color = greenyellow]; IF THEN ELSE END REPEAT UNTIL READ WRITE LT LE EQ NE GT GE PLUS MINUS MUL DIV ASSIGN LPAREN RPAREN SEMI ID NUM;
+    node [shape = circle, style = filled,  color = gainsboro];
+
+    // Initial state
+    q0 [label="START"];
+
+    // Keywords
+    q0 -> q1 [label="i" , color = blue];
+    q1 -> IF [label="f", color = blue];
+    q0 -> q2 [label="t", color = blue];
+    q2 -> q3 [label="h", color = blue];
+    q3 -> q4 [label="e", color = blue];
+    q4 -> THEN [label="n", color = blue];
+    q0 -> q5 [label="e", color = blue];
+    q5 -> q6 [label="l", color = blue];
+    q6 -> q7 [label="s", color = blue];
+    q7 -> ELSE [label="e", color = blue];
+    q5 -> q8 [label="n", color = blue];
+    q8 -> END [label="d", color = blue];
+    q0 -> q9 [label="r", color = blue];
+    q9 -> q10 [label="e", color = blue];
+    q10 -> q11 [label="a", color = blue];
+    q11 -> REPEAT [label="d", color = blue];
+    q0 -> q12 [label="u", color = blue];
+    q12 -> q13 [label="n", color = blue];
+    q13 -> q14 [label="t", color = blue];
+    q14 -> q15 [label="i", color = blue];
+    q15 -> UNTIL [label="l", color = blue];
+    q0 -> q16 [label="r", color = blue];
+    q16 -> q17 [label="e", color = blue];
+    q17 -> q18 [label="a", color = blue];
+    q18 -> READ [label="d", color = blue];
+    q0 -> q19 [label="w", color = blue];
+    q19 -> q20 [label="r", color = blue];
+    q20 -> q21 [label="i", color = blue];
+    q21 -> q22 [label="t", color = blue];
+    q22 -> WRITE [label="e", color = blue];
+
+    // Operators
+    q0 -> q23 [label="<"];
+    q23 -> LT [label=" "];
+    q23 -> LE [label="="];
+    q0 -> q24 [label=">"];
+    q24 -> GT [label=" "];
+    q24 -> GE [label="="];
+    q0 -> EQ [label="="];
+    q0 -> q25 [label="<"];
+    q25 -> q26 [label=">"];
+    q26 -> NE [label=" "];
+    q0 -> PLUS [label="+"];
+    q0 -> MINUS [label="-"];
+    q0 -> MUL [label="*"];
+    q0 -> DIV [label="/"];
+    q0 -> q27 [label=":"];
+    q27 -> ASSIGN [label="="];
+    q0 -> LPAREN [label="("];
+    q0 -> RPAREN [label=")"];
+    q0 -> SEMI [label=";"];
+
+    // Identifiers
+    q0 -> q28 [label="[a-zA-Z]"];
+    q28 -> q28 [label="[a-zA-Z0-9]"];
+    q28 -> ID [label=" "];
+
+    // Numbers
+    q0 -> q29 [label="[0-9]"];
+    q29 -> q29 [label="[0-9]"];
+    q29 -> NUM [label=" "];
+
+    // Comments
+    q0 -> q30 [label="/"];
+    q30 -> q31 [label="/"];
+    q31 -> q31 [label="[^\\n]"]; // single-line comment
+    q0 -> q32 [label="/"];
+    q32 -> q33 [label="*"];
+    q33 -> q33 [label="[^*]"];
+    q33 -> q34 [label="*"];
+    q34 -> q33 [label="[^/]"];
+    q34 -> q0 [label="/"]; // multi-line comment end
+}
+

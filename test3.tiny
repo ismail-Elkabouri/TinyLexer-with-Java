@@ -1,0 +1,18 @@
+int main()
+{
+	int x;
+	read x;
+	if x > 0 
+	then 
+		int fact := 1;
+
+		repeat
+			fact := fact * x;
+			x := x - 1;
+		until x = 0
+
+		write fact; 
+	end
+	return 0;
+	
+}

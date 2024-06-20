@@ -1,0 +1,4 @@
+# ignore all file with .class 
+*.class
+#ignore all class with .lang
+*.lang
