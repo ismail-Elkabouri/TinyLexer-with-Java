@@ -1,6 +1,4 @@
-# ignore all files with .class 
+# ignore all files with .class && .lang && .txt
 *.class
-#ignore all files with .lang
 *.lang
-#ignore all files with .txt
-*.txt
+*.txt 
